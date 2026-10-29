@@ -46,3 +46,26 @@ p {
   color: #27ae60;
   font-weight: bold;
 }
+
+.json-box {
+  margin-top: 20px;
+}
+
+.json-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+pre {
+  background-color: #f8f9fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 13px;
+  font-family: Consolas, Monaco, monospace;
+  color: #24292e;
+  overflow-x: auto;
+  margin: 0;
+}
