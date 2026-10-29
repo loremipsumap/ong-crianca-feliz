@@ -14,13 +14,6 @@
     "vite": "catalog:",
     "vite-plus": "catalog:"
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "12.16.1",
-      "onFail": "download"
-    }
-  },
   "dependencies": {
     "dotenv": "^18.0.9",
     "express": "^5.3.0"
