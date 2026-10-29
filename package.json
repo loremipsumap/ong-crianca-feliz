@@ -7,6 +7,7 @@
     "dev": "vp dev",
     "build": "vp build",
     "preview": "vp preview",
+    "api": "node server/index.js",
     "prepare": "vp config"
   },
   "devDependencies": {
