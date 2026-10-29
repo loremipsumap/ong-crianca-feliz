@@ -57,11 +57,9 @@ Siga os passos abaixo para executar a aplicação localmente:
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/SEU-USUARIO/ong-crianca-feliz.git
+git clone https://github.com/loremipsumap/ong-crianca-feliz.git
 cd ong-crianca-feliz
 ```
-
-*(Substitua `SEU-USUARIO` pelo seu nome de usuário no GitHub).*
 
 ### 2. Instalar as dependências
 
