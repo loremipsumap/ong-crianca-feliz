@@ -9,6 +9,18 @@ CREATE DATABASE ong_crianca_feliz CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_
 USE ong_crianca_feliz;
 
 -- ---------------------------------------------------------------------
+-- 0. Tabela: usuario
+-- Acesso autenticado com senha em hash bcrypt (JWT)
+-- ---------------------------------------------------------------------
+CREATE TABLE usuario (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha_hash CHAR(60) NOT NULL,
+    criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ---------------------------------------------------------------------
 -- 1. Tabela: responsavel
 -- Armazena os pais ou responsáveis legais pelas crianças atendidas
 -- ---------------------------------------------------------------------
