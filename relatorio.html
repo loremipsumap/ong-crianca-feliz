@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório Final do PIE II</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 12mm 16mm 12mm 16mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #1a202c;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .topo-doc {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1e3a8a;
+      margin: 0 0 4px 0;
+    }
+    .instrucao {
+      font-size: 13px;
+      color: #334155;
+      margin: 0 0 16px 0;
+    }
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin: 14px 0 6px 0;
+    }
+    p.descricao {
+      font-size: 12px;
+      color: #475569;
+      margin: 0 0 6px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 8px;
+    }
+    th {
+      background-color: #162c54;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+      padding: 6px 10px;
+      border: 1px solid #162c54;
+    }
+    td {
+      padding: 6px 10px;
+      border: 1px solid #cbd5e1;
+      font-size: 12px;
+      color: #1e293b;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+    .codigo-box {
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 11px;
+      line-height: 1.45;
+      color: #0f172a;
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+    }
+    .alerta {
+      font-size: 11px;
+      color: #475569;
+      margin: 4px 0 12px 0;
+    }
+    .rodape {
+      margin-top: 18px;
+      text-align: right;
+      font-size: 11px;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topo-doc">PIE II · Relatório Final</div>
+  <h1>Relatório Final do PIE II</h1>
+  <p class="instrucao">Use exatamente as três seções abaixo:</p>
+
+  <h2>1. Identificação</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 32%;">Campo</th>
+        <th>Informação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Seu Nome Completo</strong></td>
+        <td>André Vitor Moreira Pazinato</td>
+      </tr>
+      <tr>
+        <td><strong>ONG/Empresa</strong></td>
+        <td>ONG Criança Feliz</td>
+      </tr>
+      <tr>
+        <td><strong>Link do repositório</strong></td>
+        <td><a href="https://github.com/loremipsumap/ong-crianca-feliz" style="color: #2563eb; text-decoration: none;">https://github.com/loremipsumap/ong-crianca-feliz</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="alerta">
+    Confira se o repositório está <strong>público</strong>: abra o link em uma janela anônima do navegador. Se pedir login no GitHub, ele está privado.
+  </div>
+
+  <h2>2. Como rodar o projeto</h2>
+  <p class="descricao">Os comandos, na ordem, e o <strong>usuário de demonstração</strong>, se houver. É um resumo do seu README;</p>
+  
+  <div class="codigo-box">git clone https://github.com/loremipsumap/ong-crianca-feliz.git &amp;&amp; cd ong-crianca-feliz
+npm install
+No MySQL: SOURCE database/schema.sql; e SOURCE database/seed.sql;
+Copiar .env.example para .env e preencher DB_PASSWORD e JWT_SECRET
+Terminal 1: npm run api
+Terminal 2: npm run dev
+Abrir http://localhost:5173</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">Usuário de demonstração</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="width: 32%;"><strong>E-mail</strong></td>
+        <td>voluntario@exemplo.com</td>
+      </tr>
+      <tr>
+        <td><strong>Senha</strong></td>
+        <td>conectadoa123</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. O que funciona e o que ficou pendente</h2>
+  <p class="descricao">Duas listas curtas e honestas. Exemplo:</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 50%;">Funciona</th>
+        <th style="width: 50%;">Pendente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Login com usuário de demonstração e botão Sair</td>
+        <td>Edição e exclusão de crianças cadastradas pela interface</td>
+      </tr>
+      <tr>
+        <td>Rotas da API protegidas (401 sem token ou token inválido)</td>
+        <td>Filtro de busca de crianças por nome ou oficina</td>
+      </tr>
+      <tr>
+        <td>Listagem e cadastro de crianças beneficiárias com token JWT</td>
+        <td>Mensagem mais clara na interface quando o token expira</td>
+      </tr>
+      <tr>
+        <td>Listagem de oficinas socioeducativas integradas ao backend</td>
+        <td>Formulário para registro de novas oficinas pela aplicação</td>
+      </tr>
+      <tr>
+        <td>Senhas guardadas como hash seguro bcrypt (tabela usuario e seed)</td>
+        <td>Layout da listagem de crianças em telas muito pequenas de celular</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="alerta">
+    Se tudo o que o MVP pede estiver funcionando, escreva na coluna de pendências o que você melhoraria primeiro.
+  </div>
+
+  <div class="rodape">
+    PIE II · Relatório Final · 1
+  </div>
+
+</body>
+</html>
