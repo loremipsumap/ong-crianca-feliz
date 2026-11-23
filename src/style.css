@@ -1,71 +1,211 @@
+:root {
+  --cor-principal: #1e3a8a;
+  --cor-destaque: #2563eb;
+  --cor-fundo: #f8fafc;
+  --cor-erro: #b91c1c;
+  --cor-sucesso: #15803d;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1e293b;
+  background: var(--cor-fundo);
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
   margin: 0;
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
+  padding: 0;
+  font-size: 15px;
 }
 
-.card {
-  background-color: #fff;
-  padding: 24px 32px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  max-width: 480px;
-  width: 100%;
-}
-
-h1 {
-  font-size: 24px;
+h1, h2, h3 {
+  color: var(--cor-principal);
   margin-top: 0;
-  margin-bottom: 8px;
-  color: #2c3e50;
 }
 
-.subtitle {
-  color: #7f8c8d;
+section {
+  padding: 24px 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cartao {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
   font-size: 14px;
-  margin-bottom: 16px;
+  font-weight: 500;
+  color: #334155;
 }
 
-hr {
+input, select, button {
+  font: inherit;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--cor-destaque);
+}
+
+button {
+  background: var(--cor-destaque);
+  color: #fff;
   border: none;
-  border-top: 1px solid #eee;
-  margin: 16px 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
 }
 
-p {
-  font-size: 16px;
-  line-height: 1.6;
+button:hover {
+  background: #1d4ed8;
+}
+
+button.secundario {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+button.secundario:hover {
+  background: #cbd5e1;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.mensagem {
+  font-size: 14px;
+  font-weight: 600;
   margin: 8px 0;
 }
 
-#api-status {
-  color: #27ae60;
-  font-weight: bold;
+.mensagem.erro {
+  color: var(--cor-erro);
 }
 
-.json-box {
-  margin-top: 20px;
+.mensagem.sucesso {
+  color: var(--cor-sucesso);
 }
 
-.json-title {
+.mensagem.info {
+  color: #64748b;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 10px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
   font-size: 14px;
-  font-weight: bold;
-  color: #555;
-  margin-bottom: 6px;
 }
 
-pre {
-  background-color: #f8f9fa;
-  border: 1px solid #e1e4e8;
-  border-radius: 4px;
-  padding: 12px;
-  font-size: 13px;
-  font-family: Consolas, Monaco, monospace;
-  color: #24292e;
-  overflow-x: auto;
-  margin: 0;
+th {
+  background: #f1f5f9;
+  color: #475569;
+  font-weight: 600;
+}
+
+.topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: var(--cor-principal);
+  color: #fff;
+}
+
+.topo strong {
+  font-size: 18px;
+}
+
+.topo nav {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.topo nav button {
+  background: transparent;
+  color: #cbd5e1;
+  padding: 6px 12px;
+}
+
+.topo nav button:hover,
+.topo nav button.ativo {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.topo .usuario {
+  font-size: 14px;
+  color: #e2e8f0;
+}
+
+.login {
+  max-width: 360px;
+  margin: 12vh auto;
+  padding: 16px;
+}
+
+.login h1 {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.subtitulo-login {
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.login button {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.dica-demo {
+  margin-top: 16px;
+  padding: 10px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  color: #475569;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+@media (min-width: 720px) {
+  .grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+  }
+  .grade .largo,
+  .grade .acoes {
+    grid-column: 1 / -1;
+  }
 }

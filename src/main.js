@@ -1,38 +1,50 @@
 import "./style.css";
+import { lerNomeUsuario, lerToken, sair } from "./api.js";
+import { telaCriancas } from "./pages/criancas.js";
+import { telaOficinas } from "./pages/oficinas.js";
+import { telaLogin } from "./pages/login.js";
 
 const app = document.querySelector("#app");
 
-app.innerHTML = `
-  <div class="card">
-    <h1>ONG Criança Feliz</h1>
-    <p class="subtitle">Projeto Integrador Extensionista II</p>
-    <hr />
-    <p><strong>Status da API:</strong> <span id="api-status">Carregando...</span></p>
-    <p><strong>Data e hora:</strong> <span id="api-time">-</span></p>
+function mostrarApp() {
+  app.innerHTML = `
+    <header class="topo">
+      <strong>ONG Criança Feliz</strong>
+      <nav>
+        <button data-tela="criancas">Crianças</button>
+        <button data-tela="oficinas">Oficinas</button>
+      </nav>
+      <span class="usuario"></span>
+      <button id="sair" class="secundario">Sair</button>
+    </header>
+    <div id="conteudo"></div>
+  `;
 
-    <div class="json-box">
-      <p class="json-title">Resposta da API (JSON):</p>
-      <pre id="api-json">Carregando...</pre>
-    </div>
-  </div>
-`;
+  app.querySelector(".usuario").textContent = `Olá, ${lerNomeUsuario() || "Voluntário"}`;
+  const conteudo = app.querySelector("#conteudo");
+  const telas = { criancas: telaCriancas, oficinas: telaOficinas };
 
-fetch("/api/health")
-  .then((response) => response.json())
-  .then((data) => {
-    document.querySelector("#api-status").textContent = data.status;
-    document.querySelector("#api-time").textContent = new Date(
-      data.timestamp
-    ).toLocaleString("pt-BR");
-    document.querySelector("#api-json").textContent = JSON.stringify(
-      data,
-      null,
-      2
-    );
-  })
-  .catch((error) => {
-    document.querySelector("#api-status").textContent = "Erro ao conectar";
-    document.querySelector("#api-json").textContent =
-      "Erro na requisição: " + error.message;
-    console.error("Erro na requisição:", error);
-  });
+  for (const botao of app.querySelectorAll("nav button")) {
+    botao.onclick = () => {
+      for (const b of app.querySelectorAll("nav button")) b.classList.remove("ativo");
+      botao.classList.add("ativo");
+      telas[botao.dataset.tela](conteudo);
+    };
+  }
+
+  app.querySelector("#sair").onclick = () => {
+    sair();
+    iniciar();
+  };
+
+  // Abre a tela de crianças por padrão
+  app.querySelector('nav button[data-tela="criancas"]').classList.add("ativo");
+  telaCriancas(conteudo);
+}
+
+function iniciar() {
+  if (lerToken()) mostrarApp();
+  else telaLogin(app, mostrarApp);
+}
+
+iniciar();
