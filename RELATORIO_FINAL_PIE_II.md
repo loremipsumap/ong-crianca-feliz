@@ -1,6 +1,7 @@
 # PIE II · Relatório Final
-
 ## Relatório Final do PIE II
+
+Use exatamente as três seções abaixo:
 
 ---
 
@@ -19,8 +20,8 @@
 ```bash
 git clone https://github.com/loremipsumap/ong-crianca-feliz.git && cd ong-crianca-feliz
 npm install
-No MySQL: SOURCE database/schema.sql;
-Copiar .env.example para .env
+No MySQL: SOURCE database/schema.sql; e SOURCE database/seed.sql;
+Copiar .env.example para .env e preencher DB_PASSWORD e JWT_SECRET
 Terminal 1: npm run api
 Terminal 2: npm run dev
 Abrir http://localhost:5173
@@ -30,8 +31,8 @@ Abrir http://localhost:5173
 
 | Campo | Informação |
 | :--- | :--- |
-| **E-mail** | Não aplicável (versão focada em infraestrutura, rota de saúde e banco) |
-| **Senha** | Não aplicável |
+| **E-mail** | voluntario@exemplo.com |
+| **Senha** | conectadoa123 |
 
 ---
 
@@ -39,8 +40,8 @@ Abrir http://localhost:5173
 
 | Funciona | Pendente |
 | :--- | :--- |
-| Servidor Express com rota `GET /api/health` retornando status e timestamp em JSON | Conexão do backend Express com o MySQL (via driver ou ORM) |
-| Frontend em Vite+ consumindo a API Express através do proxy reverso configurado | Rotas de CRUD para manipulação de crianças, responsáveis e oficinas |
-| Interface web com exibição do status da conexão e resposta JSON em tempo real | Sistema de autenticação (login/senha) com tokens JWT |
-| Modelagem relacional completa em `database/schema.sql` com PK, FK, CHECK e CASCADE | Formulários e telas de cadastro de beneficiários no frontend |
-| Configuração de variáveis de ambiente com `.env` protegido no `.gitignore` | Controle de permissões e rotas protegidas (401 sem autenticação) |
+| Login com usuário de demonstração e botão Sair | Edição e exclusão de crianças cadastradas pela interface |
+| Rotas da API protegidas (401 sem token ou token inválido) | Filtro de busca de crianças por nome ou oficina |
+| Listagem e cadastro de crianças beneficiárias com token JWT | Mensagem mais clara na interface quando o token expira |
+| Listagem de oficinas socioeducativas integradas ao backend | Formulário para registro de novas oficinas pela aplicação |
+| Senhas guardadas como hash seguro bcrypt (tabela usuario e seed) | Layout da listagem de crianças em telas muito pequenas de celular |
